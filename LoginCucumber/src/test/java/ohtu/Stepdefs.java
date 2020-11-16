@@ -40,9 +40,14 @@ public class Stepdefs {
        app.run();
     }    
     
+    @when("username is in lowercase and at least {int} long and password is at least {int} long ")
+    public void usernameAndPasswordAreValid(int ulength, int plength) {
+        assertTrue(io.getPrints().get(0).length() >= ulength && io.getPrints().get(1).length() >= plength);
+    }
+
     @Then("system will respond with {string}")
     public void systemWillRespondWith(String expectedOutput) {
         assertTrue(io.getPrints().contains(expectedOutput));
-    }    
+    }
 
 }
